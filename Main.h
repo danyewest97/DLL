@@ -10,10 +10,10 @@ extern "C" {
 /*
  * Class:     Main
  * Method:    helloWorld
- * Signature: ()[F
+ * Signature: (I)[F
  */
 JNIEXPORT jfloatArray JNICALL Java_Main_helloWorld
-  (JNIEnv *, jobject);
+  (JNIEnv *, jobject, jint);
 
 #ifdef __cplusplus
 }

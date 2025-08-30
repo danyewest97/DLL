@@ -82,8 +82,8 @@ void run(float* arr_out, int num_vectors)
 
     // Declaring constant variables
     //const int num_vectors = 3; // 120 million vectors => ~21ms with 48 blocks and 50 threads per block
-    const int num_blocks = 67;
-    const int num_threads_per_block = 45;
+    const int num_blocks = 10;
+    const int num_threads_per_block = 100;
     const int total_num_threads = num_blocks * num_threads_per_block;
     const int num_vectors_per_thread = ceil((float) num_vectors / total_num_threads);
 

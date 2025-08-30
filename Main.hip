@@ -152,41 +152,41 @@ void run(float* arr_out, int num_vectors)
 
     printf("Validating...\n");
     // Checking if the vector math was correct
-    //float* check_output = new float[size];
-    //for (int i = 0; i < num_vectors; i++) {
-    //    float* vector = new float[3];
-    //    float* matrix = new float[9];
-    //    float* output = new float[3];
-    //    for (int j = 0; j < 3; j++) {
-    //        vector[j] = initial_vectors[(i * 3) + j];
-    //    }
-//
-    //    for (int j = 0; j < 9; j++) {
-    //        matrix[j] = initial_matrix[j];
-    //    }
-//
-    //    host_matrix_mult(matrix, vector, output);
-//
-    //    for (int j = 0; j < 3; j++) {
-    //        check_output[(i * 3) + j] = output[j];
-    //    }
-    //}
-//
-    //bool correct = true;
-    //for (int i = 0; i < size; i++) {
-    //    //printf("%f == %f\n", check_output[i], finalResult[i]);
-    //    correct &= (abs(check_output[i] - finalResult[i]) <= 0.1);
-    //    if (!correct) {
-    //        printf("%f != %f\n", check_output[i], finalResult[i]);
-    //        break;
-    //    }
-    //}
-    //std::cout << correct << "\n";
-//
-//
-    //// Duration
-    //if (correct) printf("Validation completed! Matrix math is correct!\n");
-    //else printf("Validation failed! Matrix math is incorrect...\n");
+    float* check_output = new float[size];
+    for (int i = 0; i < num_vectors; i++) {
+        float* vector = new float[3];
+        float* matrix = new float[9];
+        float* output = new float[3];
+        for (int j = 0; j < 3; j++) {
+            vector[j] = initial_vectors[(i * 3) + j];
+        }
+
+        for (int j = 0; j < 9; j++) {
+            matrix[j] = initial_matrix[j];
+        }
+
+        host_matrix_mult(matrix, vector, output);
+
+        for (int j = 0; j < 3; j++) {
+            check_output[(i * 3) + j] = output[j];
+        }
+    }
+
+    bool correct = true;
+    for (int i = 0; i < size; i++) {
+        //printf("%f == %f\n", check_output[i], finalResult[i]);
+        correct &= (abs(check_output[i] - finalResult[i]) <= 0.1);
+        if (!correct) {
+            printf("%f != %f\n", check_output[i], finalResult[i]);
+            break;
+        }
+    }
+    std::cout << correct << "\n";
+
+
+    // Duration
+    if (correct) printf("Validation completed! Matrix math is correct!\n");
+    else printf("Validation failed! Matrix math is incorrect...\n");
     auto elapsedTime = end - start;
     auto elapsedMillis = duration_cast<milliseconds>(elapsedTime);
     int millisInt = elapsedMillis.count();
@@ -197,7 +197,6 @@ void run(float* arr_out, int num_vectors)
     }
 
     printf("Done!\n");
-    //std::exit(1); // May be unsafe, not sure -- may need to clean up variables first to prevent memory leaks but I'll leave that for the future
 }
 
 

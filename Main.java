@@ -8,7 +8,7 @@ public class Main {
 
     public static void main(String[] args) {
         System.out.println("Running!");
-        int num_vectors = 100000000;
+        int num_vectors = 10000;
         int size = num_vectors * 3;
         float[] output = new Main().helloWorld(num_vectors);
         //System.out.println("\nHi from Java! Here are the received array values:");

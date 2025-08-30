@@ -5,4 +5,5 @@ REM Taking our C++ code and turning it into a DLL/library file (note: -w is for 
 call hipcc -shared -o native.dll -w --offload-arch=gfx1032 -mprintf-kind=buffered -Iinclude -Iinclude/win32 Main.hip
 
 REM Running the final Java file using the current directory as the place to look for DLL files (that's what the argument does, is set the path for the library/DLL files, with the "." being the current directory of this batch file)
-call java "-Djava.library.path=." Main.java
+REM --enable-native-access=ALL-UNNAMED to disable warnings for using System.loadLibrary()
+call java "-Djava.library.path=." --enable-native-access=ALL-UNNAMED Main.java
